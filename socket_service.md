@@ -100,6 +100,11 @@ class SocketService {
 }
 
 ```
+<li>Add this in init where this service will be used</li>
+
+```dart
+ SocketService.instance.connect();
+```
 
 <li>Then write this method to use the service</li>
 
