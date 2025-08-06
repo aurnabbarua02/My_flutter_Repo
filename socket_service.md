@@ -1,6 +1,7 @@
 # Add socket service
 
 <li>This is the service: </li>
+
 ```dart
 import 'dart:convert';
 import 'package:get/get.dart';
