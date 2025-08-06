@@ -1,20 +1,3 @@
-# facebook_auth
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
 # Steps for Facebook Auth:
 <li>Go to https://developers.facebook.com/docs/facebook-login/android/?locale=en&lsrc=lb </li>
 
@@ -47,18 +30,16 @@ then in manifest:
 <li> then create a method and write this: </li>
 
 ```dart
-final LoginResult result = await FacebookAuth.instance
-        .login(); // by default we request the email and the public profile
-    // or FacebookAuth.i.login()
-    if (result.status == LoginStatus.success) {
+final LoginResult result = await FacebookAuth.instance.login();     
+if (result.status == LoginStatus.success) {
       // you are logged
       final AccessToken accessToken = result.accessToken!;
       final userData = await FacebookAuth.i.getUserData(
         fields: "name,email,picture.width(200),birthday,friends,gender,link",
       );
       print(userData);
-    } else {
+} else {
       print(result.status);
       print(result.message);
-    }
+}
 ```
